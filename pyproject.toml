@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "todolist"
+version = "0.1.0"
+description = ""
+authors = ["ea.kuznetsov"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.1"
+uvicorn = "^0.30.6"
+asyncio = "^3.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
