@@ -10,6 +10,10 @@ python = "^3.12"
 fastapi = "^0.112.1"
 uvicorn = "^0.30.6"
 asyncio = "^3.4.3"
+pytest = "^8.3.2"
+faker = "^27.4.0"
+pytest-asyncio = "^0.24.0"
+punq = "^0.7.0"
 
 
 [build-system]

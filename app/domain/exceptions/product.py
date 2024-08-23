@@ -14,4 +14,11 @@ class EmptyTextException(ApplicationException):
     
     @property
     def message(self):
-        return f'Текст не может быть пустым"'
+        return f'Текст не может быть пустым'
+
+@dataclass(eq=False)
+class StatusNotDefined(ApplicationException):
+    
+    @property
+    def message(self):
+        return f'Статус указан неверно'

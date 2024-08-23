@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from domain.exceptions.product import EmptyTextException, TitleTooLongException
+from domain.exceptions.product import EmptyTextException, TitleTooLongException, StatusNotDefined
 from domain.values.base import BaseValueObject
 
 @dataclass(frozen=True)
@@ -30,6 +30,13 @@ class Title(BaseValueObject):
 @dataclass(frozen=True)
 class Status(BaseValueObject):
     value: str
+    
+    def validate(self):
+        if self.value not in ['В работе', 'Cоздана', 'Выполнена']:
+            raise StatusNotDefined(self.value)
+    
+    def as_generic_type(self):
+        return str(self.value)
     
     @classmethod
     def at_work(cls) -> str:
