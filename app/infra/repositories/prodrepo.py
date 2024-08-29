@@ -21,7 +21,7 @@ class MemoryTaskRepository(BaseTaskRepository):
             ))
         except StopIteration:
             return False
-    
+        
     async def add_task(self, task:Task) -> None:
         self._saved_tasks.append(task)
 
@@ -38,6 +38,14 @@ class MemoryUserReposiroty(BaseUserRepository):
         user, *_ = [user for user in self._saved_user if user.oid==oid_user ]
         
         return user
+    
+    async def check_task_exists_by_mail(self, mail: str) -> bool:    
+        try:
+            return bool(next(
+                user for user in self._saved_user if user.mail == mail
+            ))
+        except StopIteration:
+            return False
     
     async def check_user_exists_by_oid(self, oid_user: str) -> bool:
         try:

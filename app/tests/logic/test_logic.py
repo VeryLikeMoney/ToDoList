@@ -4,7 +4,7 @@ from faker import Faker
 from domain.entities.product import Task, User
 from domain.values.product import Text, Title
 from infra.repositories.prodrepo import BaseTaskRepository
-from logic.commands.prod import CreateTaskCommand
+from logic.commands.prodcommand import CreateTaskCommand
 from logic.mediator import Mediator
 
 @pytest.mark.asyncio

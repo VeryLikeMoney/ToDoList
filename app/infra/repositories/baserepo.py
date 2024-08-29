@@ -28,3 +28,7 @@ class BaseUserRepository(ABC):
     @abstractmethod
     async def add_user(self, user: User) -> User:
         ...
+    
+    @abstractmethod
+    async def check_task_exists_by_mail(self, mail: str) -> bool: 
+        ...

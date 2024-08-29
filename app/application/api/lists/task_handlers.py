@@ -6,19 +6,19 @@ from fastapi import Depends, status
 from application.api.schema import ErrorSchema
 from application.api.lists.schema import CreateTaskRequestSchema, CreateTaskResponseSchema
 from domain.exceptions.base import ApplicationException
-from logic.commands.prod import CreateTaskCommand
+from logic.commands.prodcommand import CreateTaskCommand
 from logic.init import init_container
 from logic.mediator import Mediator
 
 from domain.entities.product import User
 
-router = APIRouter(tags=['Chat'])
+router = APIRouter(tags=['Task'])
 
 @router.post(
     '/', 
     response_model=CreateTaskResponseSchema, 
     status_code=status.HTTP_201_CREATED,
-    description='Эндпоинт создает новый чат, если чат с таким названием существует возвращаяется 400 ошибка',
+    description='Эндпоинт создает новый задачу',
     responses={
         status.HTTP_201_CREATED: {'model': CreateTaskResponseSchema},
         status.HTTP_400_BAD_REQUEST: {'model': ErrorSchema}

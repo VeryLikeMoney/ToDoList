@@ -30,6 +30,10 @@ class User(BaseEntity):
         # TODO: добавить добавление евента
         
         return user
+    
+    @property
+    def fullname(self):
+        return f'{self.surname} {self.name} {self.patronymic}'
 
 @dataclass
 class Task(BaseEntity):

@@ -3,7 +3,7 @@ from punq import Container, Scope
 from domain.entities.product import User
 from infra.repositories.baserepo import BaseUserRepository
 from infra.repositories.prodrepo import BaseTaskRepository, MemoryTaskRepository, MemoryUserReposiroty
-from logic.commands.prod import CreateTaskCommand, CreateTaskCommandHandler, CreateUserCommand, CreateUserCommandHandler, GetUserCommand, GetUserCommandHandler
+from logic.commands.prodcommand import CreateTaskCommand, CreateTaskCommandHandler, CreateUserCommand, CreateUserCommandHandler, GetUserCommand, GetUserCommandHandler
 from logic.mediator import Mediator
 
 

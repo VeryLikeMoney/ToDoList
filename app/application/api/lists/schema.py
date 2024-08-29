@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from domain.entities.product import Task
+from domain.entities.product import Task, User
 
 class CreateTaskRequestSchema(BaseModel):
     title: str
@@ -24,4 +24,29 @@ class CreateTaskResponseSchema(BaseModel):
                 'patronymic': task.creator_task.patronymic,
                 'mail': task.creator_task.mail,
             }
+        )
+
+class CreateUserRequestSchema(BaseModel):
+    surname: str
+    name: str
+    patronymic: str
+    mail: str
+    department: str 
+    phone: str 
+    
+class CreateUserResponseSchema(BaseModel):
+    oid: str
+    fullname: str
+    mail: str
+    department: str
+    phone: str
+    
+    @classmethod
+    def from_entity(cls, user: User) -> 'CreateUserResponseSchema':
+        return CreateUserResponseSchema(
+            oid=user.oid,
+            fullname=user.fullname,
+            mail=user.mail,
+            department=user.department,
+            phone=user.phone, 
         )
