@@ -15,7 +15,7 @@ def test_create_task_succes():
     )
     text_task = Text('Тест')
     title = Title('Тайтл тест')
-    task: Task = Task.create_task(
+    task: Task = Task.create(
         creator_task=user,
         text_task=text_task,
         title=title

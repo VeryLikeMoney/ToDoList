@@ -12,12 +12,24 @@ class User(BaseEntity):
     name: str
     patronymic: str
     mail: str
-    department: str | None = None
-    phone: str | None = None
+    department: str = ''
+    phone: str = ''
 
     def __post_init__(self):
         # TODO: добавить добавление евента
         pass
+    
+    @classmethod
+    def create(cls, 
+               surname: str, name: str, 
+               patronymic: str, mail: str, 
+               department: str = '', phone: str = ''
+    ) -> 'Task': 
+        
+        user = cls(surname, name, patronymic, mail, department, phone)
+        # TODO: добавить добавление евента
+        
+        return user
 
 @dataclass
 class Task(BaseEntity):
@@ -34,7 +46,7 @@ class Task(BaseEntity):
     )
     
     @classmethod
-    def create_task(cls, creator_task: User, text_task: Text, title: Title) -> 'Task': 
+    def create(cls, creator_task: User, text_task: Text, title: Title) -> 'Task': 
         
         task = cls(creator_task, text_task, title)
         # TODO: добавить добавление евента
